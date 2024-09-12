@@ -1,101 +1,102 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+
+import React, { useState } from 'react';
+import Link from 'next/link';
+
+const Navbar: React.FC = () => {
+  const [isFooterVisible, setFooterVisible] = useState(false);
+
+  const toggleFooterVisibility = () => {
+    setFooterVisible(!isFooterVisible);
+  };
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
+    <div className="min-h-screen bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 flex flex-col items-center text-center p-4 md:p-8">
+      {/* Navbar Section */}
+      <nav className="w-full bg-gray-900 h-16 flex items-center px-4 shadow-lg fixed top-0 left-0 z-50">
+        <Link
+          href="#"
+          className="text-yellow-400 font-bold tracking-wide p-2 border-2 border-gray-400 transition-all duration-300 hover:border-yellow-400 hover:text-gray-300"
+          aria-label="Sakeena's Portfolio"
+          onClick={toggleFooterVisibility}
+        >
+          sakeena
+        </Link>
+        <ul className="flex gap-3 md:gap-5 ml-auto">
+          <li>
+            <Link
+              href="/"
+              className="hover:text-amber-400 text-slate-100"
+              aria-label="Go to Home Page"
+            >
+              <b>Home</b>
+            </Link>
           </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+          <li>
+            <Link
+              href="/about"
+              className="hover:text-amber-400 text-slate-100"
+              aria-label="Go to About Page"
+            >
+              <b>About</b>
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/contact"
+              className="hover:text-amber-400 text-slate-100"
+              aria-label="Go to Contact Page"
+            >
+              <b>Contact</b>
+            </Link>
+          </li>
+        </ul>
+      </nav>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Main Content Section */}
+      <main className="mt-20 flex flex-col md:flex-row items-center justify-center bg-gray-900 p-4 md:p-8 rounded-3xl shadow-2xl transition-transform transform hover:scale-105 duration-300 ease-in-out h-[70vh] w-full md:w-3/4 lg:w-2/3">
+        <img
+          src="//portfolio-8kfv.vercel.app/profile-pic%20(2).png"
+          alt="Sakeena's Image"
+          className="w-40 h-40 md:w-60 md:h-60 rounded-full border-4 border-yellow-500 shadow-2xl transform hover:scale-110 transition-transform duration-300"
+        />
+        <div className="mt-4 md:mt-0 md:ml-6 text-center md:text-left">
+          <h1 className="text-2xl md:text-4xl mb-3 text-white hover:text-yellow-600">
+            Hey, I'm Sakeena
+          </h1>
+          <h2 className="text-xl md:text-2xl mb-3 text-gray-300 hover:text-pink-700">
+            Future Cloud Applied Gen-AI Engineer...
+          </h2>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+      {/* Footer Section */}
+      {isFooterVisible && (
+        <footer className="w-full bg-gray-900 text-center py-4 border-t border-gray-700 mt-auto fixed bottom-0 left-0">
+          <div className="container mx-auto text-gray-300">
+            <p className="text-xs md:text-sm">
+              &copy; {new Date().getFullYear()} Sakeena. All rights reserved.
+            </p>
+            <p className="text-xs md:text-sm mt-2">
+              <Link href="/" className="hover:text-yellow-400">
+                Home
+              </Link>{' '}
+              |{' '}
+              <Link href="/about" className="hover:text-yellow-400">
+                About
+              </Link>{' '}
+              |{' '}
+              <Link href="/contact" className="hover:text-yellow-400">
+                Contact
+              </Link>
+            </p>
+          </div>
+        </footer>
+      )}
     </div>
   );
-}
+};
+
+export default Navbar;
+
