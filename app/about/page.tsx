@@ -1,44 +1,37 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image'; // Import the Image component
 
 const About: React.FC = () => {
     return (
         <div className="bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 flex flex-col items-center text-center p-4 min-h-screen">
             {/* Navbar Section */}
             <nav className="w-full bg-gray-900 h-16 flex items-center px-4 shadow-lg mb-6">
-                <Link
-                    href="/"
-                    className="text-yellow-400 font-bold tracking-wide p-2 border-2 border-gray-400 transition-all duration-300 hover:border-yellow-400 hover:text-gray-300"
-                    aria-label="Sakeena's Portfolio"
-                >
-                    sakeena
+                <Link href="/" aria-label="Sakeena's Portfolio">
+                    <a className="text-yellow-400 font-bold tracking-wide p-2 border-2 border-gray-400 transition-all duration-300 hover:border-yellow-400 hover:text-gray-300">
+                        sakeena
+                    </a>
                 </Link>
                 <ul className="flex gap-5 ml-auto">
                     <li>
-                        <Link
-                            href="/"
-                            className="hover:text-amber-400 text-slate-100"
-                            aria-label="Go to Home Page"
-                        >
-                            <b>Home</b>
+                        <Link href="/" aria-label="Go to Home Page">
+                            <a className="hover:text-amber-400 text-slate-100">
+                                <b>Home</b>
+                            </a>
                         </Link>
                     </li>
                     <li>
-                        <Link
-                            href="/about"
-                            className="hover:text-amber-400 text-slate-100"
-                            aria-label="Go to About Page"
-                        >
-                            <b>About</b>
+                        <Link href="/about" aria-label="Go to About Page">
+                            <a className="hover:text-amber-400 text-slate-100">
+                                <b>About</b>
+                            </a>
                         </Link>
                     </li>
                     <li>
-                        <Link
-                            href="/contact"
-                            className="hover:text-amber-400 text-slate-100"
-                            aria-label="Go to Contact Page"
-                        >
-                            <b>Contact</b>
+                        <Link href="/contact" aria-label="Go to Contact Page">
+                            <a className="hover:text-amber-400 text-slate-100">
+                                <b>Contact</b>
+                            </a>
                         </Link>
                     </li>
                 </ul>
@@ -55,15 +48,20 @@ const About: React.FC = () => {
                         About Me
                     </h2>
                     <div className="flex justify-center mb-3 md:mb-4">
-                        <img
-                            src="//portfolio-8kfv.vercel.app/profile-pic%20(2).png"
+                        <Image
+                            src="/profile-pic%20(2).png" // Optimized static file path
                             alt="Sakeena's Image"
-                            className="w-20 h-20 md:w-28 md:h-28 rounded-full border-4 border-yellow-500 shadow-lg transform hover:scale-105 transition-transform duration-300"
+                            width={112} // Adjust to match desired size
+                            height={112} // Adjust to match desired size
+                            className="rounded-full border-4 border-yellow-500 shadow-lg transform hover:scale-105 transition-transform duration-300"
                         />
                     </div>
                     <p className="text-sm md:text-base leading-relaxed max-w-lg md:max-w-xl mx-auto">
-                        Hello! I'm Sakeena, a passionate 16-year-old web developer currently navigating through the exciting world of technology as a senior student at the Governor Sindh IT Initiative for AI, web 3, Metaverse (GIAIC). I thrive on creating innovative and dynamic web experiences, with a strong foundation in HTML, CSS, JavaScript, TypeScript, React, and Next.js. My journey is fueled by a love for coding and a commitment to continuous learning and growth in the tech field.
-                    </p>
+                        {
+                            ` Hello! I am Sakeena, a passionate 16-year-old web developer currently navigating through the exciting world of technology as a senior student at the Governor Sindh IT Initiative for AI, web 3, Metaverse (GIAIC). I thrive on creating innovative and dynamic web experiences, with a strong foundation in HTML, CSS, JavaScript, TypeScript, React, and Next.js. My journey is fueled by a love for coding and a commitment to continuous learning and growth in the tech field.
+                   `
+                        }
+                                         </p>
                 </div>
                 <div className="text-center">
                     <h3 className="text-2xl md:text-3xl font-semibold mb-4 md:mb-6 text-yellow-400 hover:text-gray-200">
@@ -100,9 +98,15 @@ const About: React.FC = () => {
                 <div className="container mx-auto text-gray-300">
                     <p className="text-sm">&copy; {new Date().getFullYear()} Sakeena. All rights reserved. &#9829;</p>
                     <p className="text-sm mt-2">
-                        <Link href="/" className="hover:text-yellow-400">Home</Link> |  
-                        <Link href="/about" className="hover:text-yellow-400">About</Link> | 
-                        <Link href="/contact" className="hover:text-yellow-400">Contact</Link>
+                        <Link href="/">
+                            <a className="hover:text-yellow-400">Home</a>
+                        </Link> |  
+                        <Link href="/about">
+                            <a className="hover:text-yellow-400">About</a>
+                        </Link> | 
+                        <Link href="/contact">
+                            <a className="hover:text-yellow-400">Contact</a>
+                        </Link>
                     </p>
                 </div>
             </footer>

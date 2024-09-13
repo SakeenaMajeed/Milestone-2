@@ -1,8 +1,8 @@
 'use client';
 
-
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image'; // Import the Image component
 
 const Navbar: React.FC = () => {
   const [isFooterVisible, setFooterVisible] = useState(false);
@@ -56,17 +56,19 @@ const Navbar: React.FC = () => {
 
       {/* Main Content Section */}
       <main className="mt-20 flex flex-col md:flex-row items-center justify-center bg-gray-900 p-4 md:p-8 rounded-3xl shadow-2xl transition-transform transform hover:scale-105 duration-300 ease-in-out h-[70vh] w-full md:w-3/4 lg:w-2/3">
-        <img
+        <Image
           src="//portfolio-8kfv.vercel.app/profile-pic%20(2).png"
           alt="Sakeena's Image"
-          className="w-40 h-40 md:w-60 md:h-60 rounded-full border-4 border-yellow-500 shadow-2xl transform hover:scale-110 transition-transform duration-300"
+          width={240} // Define the width
+          height={240} // Define the height
+          className="rounded-full border-4 border-yellow-500 shadow-2xl transform hover:scale-110 transition-transform duration-300"
         />
         <div className="mt-4 md:mt-0 md:ml-6 text-center md:text-left">
           <h1 className="text-2xl md:text-4xl mb-3 text-white hover:text-yellow-600">
-            Hey, I'm Sakeena
+         { "  Hey, I am Sakeena"}
           </h1>
           <h2 className="text-xl md:text-2xl mb-3 text-gray-300 hover:text-pink-700">
-            Future Cloud Applied Gen-AI Engineer...
+      {    "  Future Cloud Applied Gen-AI Engineer..."}
           </h2>
         </div>
       </main>
@@ -99,4 +101,3 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
-

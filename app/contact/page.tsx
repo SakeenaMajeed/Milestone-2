@@ -56,7 +56,7 @@ const Contact: React.FC = () => {
                         Contact Me
                     </h2>
                     <p className="text-sm md:text-base leading-relaxed mb-6">
-                        Got questions or want to get in touch? I'm here to help!
+                      { "Got questions or want to get in touch? I am here to help!"}
                     </p>
                     <div className="text-left mb-6">
                         <p className="mb-2">
